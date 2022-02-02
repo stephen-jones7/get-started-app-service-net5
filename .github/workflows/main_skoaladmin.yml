@@ -23,10 +23,12 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
         working-directory: ./lorrylogadmin  
+        run: dotnet build --configuration Release
+        
 
       - name: dotnet publish
+        working-directory: ./lorrylogadmin
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
